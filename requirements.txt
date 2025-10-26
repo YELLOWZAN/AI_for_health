@@ -1,0 +1,7 @@
+Flask==2.2.5
+paddlepaddle>=3.0.0
+paddleocr>=2.6.0
+pillow>=9.0.0
+requests>=2.30.0
+python-dotenv>=1.0.0
+Flask-Cors>=4.0.0

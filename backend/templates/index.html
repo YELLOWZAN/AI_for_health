@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医疗病历分析系统</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>医疗病历分析系统</h1>
+            <p>上传病历文件，获取AI分析建议</p>
+        </header>
+
+        <main>
+            <section class="upload-section">
+                <div class="upload-container">
+                    <div id="drop-area">
+                        <div class="upload-icon">📄</div>
+                        <p>拖放病历文件到此处或点击上传</p>
+                        <input type="file" id="file-input" accept=".png,.jpg,.jpeg,.gif">
+                        <label for="file-input" class="upload-button">选择文件</label>
+                    </div>
+                    
+                    <div class="settings">
+                        <label for="inference-mode">推理模式：</label>
+                        <select id="inference-mode">
+                            <option value="local">本地推理</option>
+                            <option value="server">服务器推理</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section class="preview-section" id="preview-section">
+                <h2>上传预览</h2>
+                <div class="preview-container">
+                    <img id="image-preview" src="" alt="上传的图片预览" style="display: none;">
+                </div>
+            </section>
+
+            <section class="processing-section" id="processing-section" style="display: none;">
+                <h2>处理中...</h2>
+                <div class="loader"></div>
+                <p id="processing-status">正在提取病历信息...</p>
+            </section>
+
+            <section class="results-section" id="results-section" style="display: none;">
+                <h2>分析结果</h2>
+                
+                <div class="result-tabs">
+                    <button class="tab-btn active" onclick="switchTab('extracted-text')">提取的文本</button>
+                    <button class="tab-btn" onclick="switchTab('suggestions')">AI建议</button>
+                </div>
+
+                <div class="tab-content">
+                    <div id="extracted-text" class="tab-pane active">
+                        <pre id="text-result"></pre>
+                    </div>
+                    <div id="suggestions" class="tab-pane">
+                        <div class="suggestion-content">
+                            <div class="suggestion-block">
+                                <h3>病历总结</h3>
+                                <p id="summary"></p>
+                            </div>
+                            
+                            <div class="suggestion-block">
+                                <h3>健康问题分析</h3>
+                                <p id="analysis"></p>
+                            </div>
+                            
+                            <div class="suggestion-block">
+                                <h3>建议行动</h3>
+                                <ul id="recommendations"></ul>
+                            </div>
+                            
+                            <div class="suggestion-block">
+                                <h3>生活方式建议</h3>
+                                <p id="lifestyle-advice"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="disclaimer">
+                    <p><strong>免责声明：</strong> <span id="disclaimer-text"></span></p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 医疗病历分析系统 - 基于PaddlePaddle开发</p>
+        </footer>
+    </div>
+
+    <script src="/static/scripts.js"></script>
+</body>
+</html>
