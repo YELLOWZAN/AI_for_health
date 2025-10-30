@@ -36,6 +36,10 @@ pip install -r requirements.txt
 
 ## 环境配置
 
+### 特别声明  
+
+目前NVIDIA 50系平台存在部分DL框架不兼容的情况，建议使用算力框架11及以下的计算平台
+
 系统使用`.env`文件进行配置，主要配置项包括：
 
 - `INFERENCE_MODE`: 推理模式，可选值为`local`（本地）或`server`（服务器）
